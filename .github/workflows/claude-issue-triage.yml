@@ -72,7 +72,11 @@ jobs:
                - Si es un re-triage (issue editado), quita los labels de tipo/área/prioridad/needs-info
                  que ya no apliquen. No toques otros labels (p. ej. los puestos manualmente como `wontfix` o `duplicate`).
             4. Publica el diagnóstico como UN ÚNICO comentario, escrito en español, que empiece con la
-               línea exacta `<!-- claude-triage -->` y siga esta estructura:
+               línea exacta `<!-- claude-triage -->`. El comentario debe estar en formato Markdown que
+               GitHub (GitHub Flavored Markdown) pueda interpretar y renderizar correctamente: usa
+               encabezados (`##`), listas, **negritas**, bloques de código con triple acento grave y
+               lenguaje (```js), código en línea con acentos graves y casillas `- [ ]` para los criterios
+               de aceptación. Evita HTML salvo el comentario inicial. Sigue esta estructura:
                - **Resumen**: qué se reporta, en 1-2 frases.
                - **Clasificación**: tipo, área y prioridad, con justificación breve.
                - **Pasos para reproducir**: solo si es un bug (indica qué falta si no están claros).
