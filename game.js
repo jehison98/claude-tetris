@@ -105,6 +105,7 @@ const MAX_START_LEVEL = 10;
 const menuItems = [resumeBtn, pauseRestartBtn, controlsBtn, levelRow];
 let menuIndex = 0;
 let startLevel = 1;
+let baseLevel = 1; // nivel inicial de la partida en curso (fijado en init)
 
 let theme = "dark",
   gridColor = "#22222e";
@@ -172,7 +173,7 @@ function clearLines() {
   if (cleared) {
     lines += cleared;
     score += (LINE_SCORES[cleared] || 0) * level;
-    level = Math.max(startLevel, Math.floor(lines / 10) + 1);
+    level = Math.max(baseLevel, Math.floor(lines / 10) + 1);
     dropInterval = Math.max(100, 1000 - (level - 1) * 90);
     updateHUD();
   }
@@ -332,7 +333,10 @@ function activateMenuItem(el) {
 }
 
 function handlePauseKey(e) {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter", "NumpadEnter", "Space", "Tab"].includes(e.code)) return;
   e.preventDefault();
+  if (e.repeat) return; // evita que un auto-repeat de la partida se cuele en el menú
   switch (e.code) {
     case "ArrowUp":
       setMenuIndex(menuIndex - 1);
@@ -388,7 +392,8 @@ function init() {
   board = createBoard();
   score = 0;
   lines = 0;
-  level = startLevel;
+  baseLevel = startLevel;
+  level = baseLevel;
   paused = false;
   gameOver = false;
   dropInterval = Math.max(100, 1000 - (level - 1) * 90);
