@@ -58,6 +58,33 @@
             <button id="restart-btn">Reiniciar</button>
           </div>
         </div>
+
+        <div id="pause-menu" class="overlay hidden" role="dialog" aria-label="Menú de pausa">
+          <div class="overlay-box pause-box">
+            <p id="pause-title">PAUSA</p>
+            <button type="button" class="menu-item" id="resume-btn" tabindex="-1">Reanudar</button>
+            <button type="button" class="menu-item" id="pause-restart-btn" tabindex="-1">Reiniciar</button>
+            <button type="button" class="menu-item" id="controls-btn" tabindex="-1" aria-expanded="false">
+              Ver controles
+            </button>
+            <ul id="pause-controls" class="hidden">
+              <li><kbd>←</kbd><kbd>→</kbd> mover</li>
+              <li><kbd>↑</kbd> o <kbd>X</kbd> rotar</li>
+              <li><kbd>↓</kbd> bajar</li>
+              <li><kbd>Space</kbd> caída</li>
+              <li><kbd>P</kbd> o <kbd>Esc</kbd> pausa</li>
+            </ul>
+            <div class="menu-item level-row" id="level-row">
+              <span>Nivel inicial</span>
+              <span class="level-picker">
+                <button type="button" id="level-down" tabindex="-1" aria-label="Bajar nivel inicial">‹</button>
+                <span id="start-level-value">1</span>
+                <button type="button" id="level-up" tabindex="-1" aria-label="Subir nivel inicial">›</button>
+              </span>
+            </div>
+            <p class="menu-hint">↑ ↓ Enter · ← → cambia nivel</p>
+          </div>
+        </div>
       </div>
     </main>
 
