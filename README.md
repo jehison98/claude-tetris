@@ -39,6 +39,7 @@ Es una versión jugable del Tetris clásico con todas las mecánicas que esperar
 - **Soft drop** (bajada acelerada) y **hard drop** (caída instantánea).
 - **Pieza fantasma** (_ghost piece_): muestra dónde aterrizará la pieza actual.
 - **Vista previa** de la siguiente pieza.
+- **Skins visuales** (selector junto al botón de tema): Retro, Neón (fondo negro con resplandor), Pastel (colores suaves y bordes redondeados) y Pixel art (textura de píxeles biselada). Se aplica sin recargar y se guarda en `localStorage` (`tetris-skin`).
 - **Sistema de puntuación** clásico de Tetris (100 / 300 / 500 / 800 multiplicado por nivel).
 - **Niveles** que aumentan cada 10 líneas y aceleran la caída.
 - **Menú de pausa** (`P` o `Esc`): Reanudar, Reiniciar, Ver controles y selector de **nivel inicial** (1–10, se guarda en `localStorage`). Mientras está abierto se bloquea el input del juego.
