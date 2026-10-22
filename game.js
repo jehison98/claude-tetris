@@ -13,6 +13,7 @@ const COLORS = [
   "#e57373", // Z - red
   "#64b5f6", // J - pale blue
   "#ffb74d", // L - orange
+  "#f06292", // Tuerca - pink
 ];
 
 const PIECES = [
@@ -52,6 +53,11 @@ const PIECES = [
     [7, 7, 7],
     [0, 0, 0],
   ], // L
+  [
+    [8, 8, 8],
+    [8, 0, 8],
+    [8, 8, 8],
+  ], // Tuerca (hueca en el centro)
 ];
 
 // Paleta con más contraste para el fondo claro
@@ -64,6 +70,7 @@ const COLORS_LIGHT = [
   "#e53935", // Z
   "#1e88e5", // J
   "#fb8c00", // L
+  "#d81b60", // Tuerca
 ];
 
 const THEME_KEY = "tetris-theme";
@@ -92,7 +99,7 @@ function createBoard() {
 }
 
 function randomPiece() {
-  const type = Math.floor(Math.random() * 7) + 1;
+  const type = Math.floor(Math.random() * (PIECES.length - 1)) + 1;
   const shape = PIECES[type].map((row) => [...row]);
   return { type, shape, x: Math.floor(COLS / 2) - Math.floor(shape[0].length / 2), y: 0 };
 }
