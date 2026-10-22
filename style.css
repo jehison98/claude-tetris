@@ -228,6 +228,34 @@ kbd {
   border-color: var(--accent);
 }
 
+/* ---- Selector de skin ---- */
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#skin-select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#skin-select:hover {
+  border-color: var(--accent);
+}
+
+/* Neón: el canvas siempre es negro */
+:root[data-skin="neon"] #board,
+:root[data-skin="neon"] #next-canvas {
+  background: #000;
+}
+
 /* ---- Transición de tema (solo CSS; el canvas no se anima) ---- */
 body,
 .title,
