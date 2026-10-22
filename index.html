@@ -10,9 +10,12 @@
     <main class="stage">
       <header class="top-bar">
         <h1 class="title">TETRIS</h1>
-        <button id="theme-toggle" type="button" tabindex="-1" aria-label="Cambiar entre tema claro y oscuro">
-          ☀ Claro
-        </button>
+        <div class="top-actions">
+          <select id="skin-select" tabindex="-1" aria-label="Elegir skin visual"></select>
+          <button id="theme-toggle" type="button" tabindex="-1" aria-label="Cambiar entre tema claro y oscuro">
+            ☀ Claro
+          </button>
+        </div>
       </header>
 
       <div class="wrapper">
@@ -55,7 +58,66 @@
           <div class="overlay-box">
             <p id="overlay-title">GAME OVER</p>
             <p id="overlay-score"></p>
+            <div id="gameover-extra" class="records-box hidden">
+              <div id="name-entry" class="name-entry hidden">
+                <label for="name-input">¡Entras en el top 5! Tu nombre:</label>
+                <div class="name-row">
+                  <input id="name-input" type="text" maxlength="12" autocomplete="off" placeholder="Anónimo" />
+                  <button id="name-save-btn" type="button">Guardar</button>
+                </div>
+              </div>
+              <table class="records">
+                <thead>
+                  <tr><th>#</th><th>Nombre</th><th>Puntos</th><th>Líneas</th></tr>
+                </thead>
+                <tbody id="over-records"></tbody>
+              </table>
+              <p id="over-bests" class="bests"></p>
+              <button id="over-reset-btn" class="link-btn" type="button">Borrar records</button>
+            </div>
             <button id="restart-btn">Reiniciar</button>
+          </div>
+        </div>
+
+        <div id="pause-menu" class="overlay hidden" role="dialog" aria-label="Menú de pausa">
+          <div class="overlay-box pause-box">
+            <p id="pause-title">PAUSA</p>
+            <button type="button" class="menu-item" id="resume-btn" tabindex="-1">Reanudar</button>
+            <button type="button" class="menu-item" id="pause-restart-btn" tabindex="-1">Reiniciar</button>
+            <button type="button" class="menu-item" id="controls-btn" tabindex="-1" aria-expanded="false">
+              Ver controles
+            </button>
+            <ul id="pause-controls" class="hidden">
+              <li><kbd>←</kbd><kbd>→</kbd> mover</li>
+              <li><kbd>↑</kbd> o <kbd>X</kbd> rotar</li>
+              <li><kbd>↓</kbd> bajar</li>
+              <li><kbd>Space</kbd> caída</li>
+              <li><kbd>P</kbd> o <kbd>Esc</kbd> pausa</li>
+            </ul>
+            <div class="menu-item level-row" id="level-row">
+              <span>Nivel inicial</span>
+              <span class="level-picker">
+                <button type="button" id="level-down" tabindex="-1" aria-label="Bajar nivel inicial">‹</button>
+                <span id="start-level-value">1</span>
+                <button type="button" id="level-up" tabindex="-1" aria-label="Subir nivel inicial">›</button>
+              </span>
+            </div>
+            <p class="menu-hint">↑ ↓ Enter · ← → cambia nivel</p>
+          </div>
+        </div>
+
+        <div id="start-screen" class="overlay">
+          <div class="overlay-box">
+            <p class="start-title">RECORDS</p>
+            <table class="records">
+              <thead>
+                <tr><th>#</th><th>Nombre</th><th>Puntos</th><th>Líneas</th></tr>
+              </thead>
+              <tbody id="start-records"></tbody>
+            </table>
+            <p id="start-bests" class="bests"></p>
+            <button id="start-btn" type="button">Jugar</button>
+            <button id="start-reset-btn" class="link-btn" type="button">Borrar records</button>
           </div>
         </div>
       </div>
