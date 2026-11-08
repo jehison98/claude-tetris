@@ -212,6 +212,108 @@ kbd {
   background: var(--accent-hover);
 }
 
+/* ---- Records ---- */
+.hidden {
+  display: none !important;
+}
+
+.records {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 220px;
+}
+
+.records ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  text-align: left;
+}
+
+.records li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+.records li.empty {
+  opacity: 0.5;
+}
+
+.records li.highlight {
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+}
+
+#records-extra {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+#record-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#record-msg {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.record-input-row {
+  display: flex;
+  gap: 6px;
+}
+
+#name-input {
+  width: 130px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+  user-select: text;
+}
+
+#name-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#save-record-btn,
+#reset-records-btn {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#save-record-btn:hover,
+#reset-records-btn:hover {
+  border-color: var(--accent);
+}
+
+#reset-records-btn:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
 /* ---- Toggle de tema ---- */
 #theme-toggle {
   background: var(--surface);
