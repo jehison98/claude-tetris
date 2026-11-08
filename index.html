@@ -45,7 +45,7 @@
                 <li><kbd>↑</kbd> rotar</li>
                 <li><kbd>↓</kbd> bajar</li>
                 <li><kbd>Space</kbd> caída</li>
-                <li><kbd>P</kbd> pausa</li>
+                <li><kbd>P</kbd> / <kbd>Esc</kbd> pausa</li>
               </ul>
             </div>
           </aside>
@@ -56,6 +56,34 @@
             <p id="overlay-title">GAME OVER</p>
             <p id="overlay-score"></p>
             <button id="restart-btn">Reiniciar</button>
+          </div>
+        </div>
+
+        <div id="pause-menu" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="pause-title">
+          <div class="overlay-box">
+            <p id="pause-title">PAUSA</p>
+            <div id="pause-main" class="menu">
+              <button id="resume-btn" class="menu-btn" type="button">Reanudar</button>
+              <button id="pause-restart-btn" class="menu-btn" type="button">Reiniciar</button>
+              <button id="controls-btn" class="menu-btn" type="button" aria-expanded="false">Ver controles</button>
+              <label class="menu-level">
+                <span>Nivel inicial</span>
+                <select id="start-level">
+                  <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                  <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </label>
+            </div>
+            <ul id="pause-controls" class="menu-controls hidden">
+              <li><kbd>←</kbd><kbd>→</kbd> mover</li>
+              <li><kbd>↑</kbd> / <kbd>X</kbd> rotar</li>
+              <li><kbd>↓</kbd> bajar</li>
+              <li><kbd>Space</kbd> caída</li>
+              <li><kbd>P</kbd> / <kbd>Esc</kbd> pausa</li>
+            </ul>
+            <p class="menu-hint">El nivel inicial se aplica al reiniciar</p>
           </div>
         </div>
       </div>
